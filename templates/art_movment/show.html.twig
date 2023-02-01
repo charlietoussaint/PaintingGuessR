@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ArtMovment{% endblock %}
+
+{% block body %}
+    <h1>ArtMovment</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ art_movment.id }}</td>
+            </tr>
+            <tr>
+                <th>ArtMovmentName</th>
+                <td>{{ art_movment.artMovmentName }}</td>
+            </tr>
+            <tr>
+                <th>ArtMovmentDate</th>
+                <td>{{ art_movment.artMovmentDate }}</td>
+            </tr>
+            <tr>
+                <th>ArtMovmentDescription</th>
+                <td>{{ art_movment.artMovmentDescription }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_art_movment_index') }}">back to list</a>
+
+    <a href="{{ path('app_art_movment_edit', {'id': art_movment.id}) }}">edit</a>
+
+    {{ include('art_movment/_delete_form.html.twig') }}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ArtMovment{% endblock %}
+
+{% block body %}
+    <h1>Edit ArtMovment</h1>
+
+    {{ include('art_movment/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_art_movment_index') }}">back to list</a>
+
+    {{ include('art_movment/_delete_form.html.twig') }}
+{% endblock %}
