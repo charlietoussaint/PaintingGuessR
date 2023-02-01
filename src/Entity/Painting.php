@@ -39,6 +39,7 @@ class Painting
         return $this->id;
     }
 
+
     public function getPaintingName(): ?string
     {
         return $this->painting_name;

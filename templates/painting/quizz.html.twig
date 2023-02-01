@@ -7,49 +7,44 @@
 
 	<main class="quizzPage">
 
+		{% if verificationResult == 'Correct answer!' %}
+			<div class="alert alert-success alertQuizz">Bonne réponse !</div>
+		{% elseif verificationResult == 'Wrong answer.' %}
+			<div class="alert alert-danger alertQuizz">Mauvaise réponse !</div>
+		{% endif %}
+
 		<div class="answersQuizz">
 
 			<h2>
-				<a data-bs-toggle="collapse" href="#screenGallery" role="button" aria-expanded="false" aria-controls="screenGallery">Deviner la peinture</a>
+				<a data-bs-toggle="collapse" href="#screenGallery" role="button" aria-expanded="false" aria-controls="screenGallery">Deviner</a>
+
 			</h2>
 			<div class="collapse" id="screenGallery">
 				<div class="row m-5 quizzForm">
 
-
 					<h3 class="logoTitle">La peinture est :</h3>
-					<form class="" method="post" action="/result">
-						{% for painting in paintings %}
-							<div>
-								<input type="radio" value={{painting.paintingName}} name="answer" id="{{painting.paintingName}}">
-								<label for="{{painting.paintingName}}">{{painting.paintingName}}</label>
-							</div>
-						{% endfor %}
-						<button class="buttonAnswer">Deviner</button>
+
+					<form method="post">
+						<div class="form-group">
+							<label for="selectedAnswer"></label>
+							<select class="form-control" id="selectedAnswer" name="selectedAnswer">
+								{% for painting in paintings %}
+									<option value="{{ painting.paintingName }}">{{ painting.paintingName }}</option>
+								{% endfor %}
+							</select>
+						</div>
+						<button type="submit" class="btn btn-primary">Valider</button>
 					</form>
 				</div>
 			</div>
+
+			<a class="navquizz" href="/painting/quizz/{{ random(['19', '20', '21', '22']) }}">
+				<button type="button" class="navquizz">Tester une nouvelle peinture</button>
+			</a>
+
 		</div>
 
 		<img src="{{ asset('build/images/' ~ painting.paintingURL) }}" class="imgQuizz">
-
-		<fieldset>
-			<legend>Select a maintenance drone:</legend>
-
-			<div>
-				<input type="radio" id="huey" name="drone" value="huey" checked>
-				<label for="huey">Huey</label>
-			</div>
-
-			<div>
-				<input type="radio" id="dewey" name="drone" value="dewey">
-				<label for="dewey">Dewey</label>
-			</div>
-
-			<div>
-				<input type="radio" id="louie" name="drone" value="louie">
-				<label for="louie">Louie</label>
-			</div>
-		</fieldset>
 
 	</main>
 {% endblock %}
