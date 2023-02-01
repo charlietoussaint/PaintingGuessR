@@ -3,3 +3,22 @@ body {
 }
 
 @import "~bootstrap/scss/bootstrap";
+
+.quizzPage {
+    margin: 0;
+}
+
+.imgQuizz {
+    z-index: 0;
+}
+
+.answersQuizz {
+    z-index: 1;
+    position: absolute;
+    top: 40px;
+    left: 40px;
+}
+
+.quizzForm {
+    background-color: #fff;
+}

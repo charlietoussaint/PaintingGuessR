@@ -49,6 +49,15 @@ class PaintingController extends AbstractController
         ]);
     }
 
+    #[Route('/quizz/{id}', name: 'app_painting_show', methods: ['GET'])]
+    public function quizz(Painting $painting, PaintingRepository $paintingRepository): Response
+    {
+        return $this->render('painting/quizz.html.twig', [
+            'painting' => $painting,
+            'paintings' => $paintingRepository->findAnswers(),
+        ]);
+    }
+
     #[Route('/{id}/edit', name: 'app_painting_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Painting $painting, PaintingRepository $paintingRepository): Response
     {

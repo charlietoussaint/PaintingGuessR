@@ -15,7 +15,7 @@ class PaintingFixtures extends Fixture implements DependentFixtureInterface
             [
                 'artMovmentName' => 'Impressionisme',
                 'painting_name' => 'La nuit étoilée',
-                'painting_URL' => 'Brouillard',
+                'painting_URL' => 'starrynight.jpg',
                 'painting_date' => '1889',
                 'painter_name' => "Vincent Van Gogh",
                 'painter_description' => "Le tableau représente ce que Van Gogh pouvait voir et extrapoler de la chambre qu'il occupait dans l'asile du monastère Saint-Paul-de-Mausole à Saint-Rémy-de-Provence en mai 1889.",
@@ -53,7 +53,7 @@ class PaintingFixtures extends Fixture implements DependentFixtureInterface
         foreach ($paintings as $key => $painting) {
             $newPainting = new Painting();
             $newPainting->setPaintingName($painting['painting_name']);
-            $newPainting->setPaintingURL($painting['painting_name']);
+            $newPainting->setPaintingURL($painting['painting_URL']);
             $newPainting->setPaintingDate($painting['painting_date']);
             $newPainting->setPainterDescription($painting['painter_description']);
             $newPainting->setPainterName($painting['painter_name']);

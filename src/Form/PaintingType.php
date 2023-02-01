@@ -2,6 +2,7 @@
 
 namespace App\Form;
 
+use App\Entity\ArtMovment;
 use App\Entity\Painting;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -18,8 +19,7 @@ class PaintingType extends AbstractType
             ->add('painterName')
             ->add('painterDescription')
             ->add('smallPaintingUrl')
-            ->add('movmentKey')
-        ;
+            ->add('movmentKey', null, ['choice_label' => 'art_movment_name']);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

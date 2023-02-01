@@ -32,7 +32,7 @@ class Painting
     private ?string $smallPaintingUrl = null;
 
     #[ORM\ManyToOne]
-    private ?artMovment $movmentKey = null;
+    private ?ArtMovment $movmentKey = null;
 
     public function getId(): ?int
     {
