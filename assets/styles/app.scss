@@ -18,7 +18,7 @@ body {
     z-index: 1;
     position: fixed;
     top: 25px;
-    left: 25px;
+    left: 50px;
 }
 
 .valueQuizz {
@@ -92,6 +92,10 @@ body {
     font: 800 20px 'Playfair Display';
     text-align: center;
     color: #fff;
+
+    &:hover {
+        color: rgb(121, 121, 121);
+    }
 }
 
 .editTitle {
@@ -120,14 +124,14 @@ body {
     border-right: 0px;
     border-top: 2px solid;
     border-bottom: 2px solid;
-    border-color: white;
-    color: #fff;
-    background-color: black;
+    border-color: rgba(255, 255, 255, .4);
+    color: rgba(255, 255, 255, .4);
+    background: rgba(255, 122, 89, .0);
     text-align: center;
 
     &:hover {
-        border-color: red;
-        color: red;
+        border-color: #fff;
+        color: #fff;
     }
 }
 
@@ -156,7 +160,6 @@ body {
 
 .formText {
     font: 500 18px 'Playfair Display';
-    color: #fff;
 }
 
 .btnForm {
@@ -191,10 +194,11 @@ body {
     color: #fff;
     background-color: black;
     text-align: center;
+    margin-bottom: 20px;
 
     &:hover {
-        border-color: blue;
-        color: blue;
+        border-color: rgb(133, 133, 133);
+        color: rgb(128, 128, 128);
     }
 }
 
@@ -215,8 +219,8 @@ body {
     text-align: center;
 
     &:hover {
-        border-color: blue;
-        color: blue;
+        border-color: rgb(133, 133, 133);
+        color: rgb(128, 128, 128);
     }
 }
 
@@ -230,11 +234,12 @@ body {
     border-color: red;
     color: red;
     background-color: black;
+    margin-bottom: 30px;
     text-align: center;
 
     &:hover {
-        border-color: white;
-        color: white;
+        border-color: rgb(180, 0, 0);
+        color: rgb(180, 0, 0);
     }
 }
 
@@ -245,25 +250,42 @@ body {
     border-right: 0px;
     border-top: 2px solid;
     border-bottom: 2px solid;
-    border-color: black;
-    color: black;
+    border-color: rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.5);
     text-align: center;
     background: rgba(255, 122, 89, .0);
 
     &:hover {
-        border-color: white;
-        color: white;
+        border-color: rgb(0, 0, 0);
+        color: rgb(0, 0, 0);
+    }
+}
+
+.btnAnswerQuizz {
+    background-color: rgba(0, 0, 0, 0.3);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    &:hover {
+        border-color: rgb(0, 0, 0, 0.8);
+        background-color: rgb(0, 0, 0, 0.8);
     }
 }
 
 .guessQuizz {
     font: 900 32px 'Playfair Display';
     text-decoration: none;
-    color: black;
+    color: rgba(255, 255, 255, 0.3);
 
     &:hover {
-        color: white;
+        color: rgb(255, 255, 255, 0.8);
     }
+}
+
+.paintingBG {
+    background-color: black;
 }
 
 .btnQuizz {
@@ -310,21 +332,28 @@ td {
     border-right: 0px;
     border-top: 2px solid;
     border-bottom: 2px solid;
-    border-color: black;
-    color: black;
+    border-color: rgba(0, 0, 0, 0.5);
+    color: rgba(0, 0, 0, 0.5);
     text-align: center;
     background: rgba(255, 122, 89, .0);
     margin-left: 12px;
 
     &:hover {
-        border-color: white;
-        color: white;
+        border-color: rgb(0, 0, 0);
+        color: rgb(0, 0, 0);
     }
 }
 
 .quizzForm {
     background-color: rgba(255, 255, 255, 0.6);
     width: 350px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 20px;
+    margin-top: 20px;
+}
+
+.homeImage {
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    animation: fadein 0.8s;
+    background-image: url(../../assets/images/bgMeninas.jpg);
 }

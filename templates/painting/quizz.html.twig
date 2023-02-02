@@ -11,7 +11,7 @@
 		<head><script src="https://code.jquery.com/jquery-3.6.0.min.js"> </script>
 	</head>
 
-	<main id="painting-container">
+	<main id="painting-container" class="paintingBG">
 		<div class="alertContainer">
 			{% if verificationResult == 'Correct answer!' %}
 				<div class="alert alertSuccessQuizz alertQuizz">Bonne réponse !</div>
@@ -22,19 +22,23 @@
 
 		<div class="answersQuizz">
 
-			<h2 class="mt-3">
-				<a data-bs-toggle="collapse" href="#screenGallery" role="button" aria-expanded="false" aria-controls="screenGallery" class="guessQuizz">JOUER</a>
+			<div class="guessQuizz">
+				<h2 class="mt-3">
+					<a data-bs-toggle="collapse" href="#screenGallery" role="button" aria-expanded="false" aria-controls="screenGallery" class="guessQuizz">JOUER</a>
+				</h2>
+			</div>
 
-			</h2>
 			<div class="collapse" id="screenGallery">
 				<div class="row quizzForm">
 
 					<h3 class="semiTitleQuizz">La peinture est :</h3>
 
 					<form method="post">
+
 						<div class="form-group">
 							<label for="selectedAnswer"></label>
 							<select class="form-control selectQuizz" id="selectedAnswer" name="selectedAnswer">
+								<option value="" disabled selected hidden>Choissez une peinture</option>
 								{% for painting in paintings %}
 									<option value="{{ painting.paintingName }}" class="valueQuizz">{{ painting.paintingName }}</option>
 								{% endfor %}
