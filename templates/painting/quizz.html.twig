@@ -5,46 +5,54 @@
 
 {% block body %}
 
-	<main class="quizzPage">
+	{# <div id="painting-container"> #}
+	{# <img src="Assets/starrynight.jpg" id="painting"> #}
+	{# </div> #}
+		<head><script src="https://code.jquery.com/jquery-3.6.0.min.js"> </script>
+	</head>
 
-		{% if verificationResult == 'Correct answer!' %}
-			<div class="alert alert-success alertQuizz">Bonne réponse !</div>
-		{% elseif verificationResult == 'Wrong answer.' %}
-			<div class="alert alert-danger alertQuizz">Mauvaise réponse !</div>
-		{% endif %}
+	<main id="painting-container">
+		<div class="alertContainer">
+			{% if verificationResult == 'Correct answer!' %}
+				<div class="alert alertSuccessQuizz alertQuizz">Bonne réponse !</div>
+			{% elseif verificationResult == 'Wrong answer.' %}
+				<div class="alert alertDangerQuizz alertQuizz">Mauvaise réponse !</div>
+			{% endif %}
+		</div>
 
 		<div class="answersQuizz">
 
-			<h2>
-				<a data-bs-toggle="collapse" href="#screenGallery" role="button" aria-expanded="false" aria-controls="screenGallery">Deviner</a>
+			<a class="navquizz" href="{{ path('app_painting_random') }}">
+				<button type="button" class="navquizz btnSkip">Passer à un autre tableau ▶</button>
+			</a>
+
+			<h2 class="mt-3">
+				<a data-bs-toggle="collapse" href="#screenGallery" role="button" aria-expanded="false" aria-controls="screenGallery" class="guessQuizz">DEVINER</a>
 
 			</h2>
 			<div class="collapse" id="screenGallery">
-				<div class="row m-5 quizzForm">
+				<div class="row quizzForm">
 
-					<h3 class="logoTitle">La peinture est :</h3>
+					<h3 class="semiTitleQuizz">La peinture est :</h3>
 
 					<form method="post">
 						<div class="form-group">
 							<label for="selectedAnswer"></label>
-							<select class="form-control" id="selectedAnswer" name="selectedAnswer">
+							<select class="form-control selectQuizz" id="selectedAnswer" name="selectedAnswer">
 								{% for painting in paintings %}
-									<option value="{{ painting.paintingName }}">{{ painting.paintingName }}</option>
+									<option value="{{ painting.paintingName }}" class="valueQuizz">{{ painting.paintingName }}</option>
 								{% endfor %}
 							</select>
 						</div>
-						<button type="submit" class="btn btn-primary">Valider</button>
+						<button type="submit" class="btnQuizz">Valider</button>
 					</form>
+
 				</div>
 			</div>
 
-			<a class="navquizz" href="/painting/quizz/{{ random(['19', '20', '21', '22']) }}">
-				<button type="button" class="navquizz">Tester une nouvelle peinture</button>
-			</a>
-
 		</div>
 
-		<img src="{{ asset('build/images/' ~ painting.paintingURL) }}" class="imgQuizz">
+		<img src="{{ asset('build/images/' ~ painting.paintingURL) }}" class="imgQuizz" id="painting">
 
 	</main>
 {% endblock %}

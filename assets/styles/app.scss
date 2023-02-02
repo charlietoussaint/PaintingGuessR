@@ -4,6 +4,8 @@ body {
 
 @import "~bootstrap/scss/bootstrap";
 
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,800;0,900;1,400;1,500;1,600;1,800&display=swap');
+
 .quizzPage {
     margin: 0;
 }
@@ -15,19 +17,35 @@ body {
 .answersQuizz {
     z-index: 1;
     position: fixed;
-    top: 80px;
+    top: 40px;
     left: 40px;
 }
 
-.quizzForm {
-    background-color: #fff;
+.valueQuizz {
+    font: 500 16px 'Playfair Display';
+}
+
+.selectQuizz {
+    background-color: rgba(255, 255, 255, .5);
+    width: 280px;
+    font: 500 16px 'Playfair Display';
+}
+
+.semiTitleQuizz {
+    font: 800 24px 'Playfair Display';
+    font-style: italic;
 }
 
 .navQuizz {
     z-index: 1;
     position: fixed;
-    top: 200px;
+    top: 50px;
     left: 40px;
+}
+
+.alertContainer {
+    display: flex;
+    justify-content: center;
 }
 
 .alertQuizz {
@@ -35,4 +53,158 @@ body {
     z-index: 1;
     margin: 0;
     border-radius: 0;
+}
+
+.alertDangerQuizz {
+    background-color: rgb(153, 1, 1, .7);
+    font: 800 20px 'Playfair Display';
+    color: white;
+}
+
+.alertSuccessQuizz {
+    background-color: rgba(0, 100, 12, 0.7);
+    font: 800 20px 'Playfair Display';
+    color: white;
+}
+
+#painting-container {
+    overflow: hidden;
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+}
+
+#painting {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.MainTitle {
+    margin-top: 20vh;
+    font: 800 54px 'Playfair Display';
+    text-align: center;
+    color: #fff;
+}
+
+.homeBaseline {
+    font: 500 30px 'Playfair Display';
+    text-align: center;
+    color: #fff;
+    font-style: italic;
+}
+
+.homeMain {
+    background-color: black;
+}
+
+.buttonPlay {
+    width: 200px;
+    margin-top: 10vh;
+    font: 800 50px 'Playfair Display';
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    border-color: white;
+    color: #fff;
+    background-color: black;
+    text-align: center;
+
+    &:hover {
+        border-color: red;
+        color: red;
+    }
+}
+
+.divButton {
+    display: flex;
+    justify-content: center;
+}
+
+.containForm {
+    display: flex;
+    justify-content: center;
+    margin-top: 5vh;
+}
+
+.containFormBtn {
+    display: flex;
+    justify-content: center;
+}
+
+.titleConnect {
+    margin-top: 20vh;
+    font: 800 38px 'Playfair Display';
+    text-align: center;
+    color: #fff;
+}
+
+.formText {
+    font: 500 18px 'Playfair Display';
+    color: #fff;
+}
+
+.btnForm {
+    width: 200px;
+    margin-top: 10vh;
+    font: 800 24px 'Playfair Display';
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    border-color: white;
+    color: #fff;
+    background-color: black;
+    text-align: center;
+
+    &:hover {
+        border-color: red;
+        color: red;
+    }
+}
+
+.btnSkip {
+    font: 800 20px 'Playfair Display';
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    border-color: black;
+    color: black;
+    text-align: center;
+    background: rgba(255, 122, 89, .0);
+
+    &:hover {
+        border-color: white;
+        color: white;
+    }
+}
+
+.guessQuizz {
+    font: 900 32px 'Playfair Display';
+    text-decoration: none;
+    color: black;
+
+    &:hover {
+        color: white;
+    }
+}
+
+.btnQuizz {
+    margin-top: 25px;
+    font: 900 28px 'Playfair Display';
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    border-color: black;
+    color: black;
+    text-align: center;
+    background: rgba(255, 122, 89, .0);
+
+    &:hover {
+        border-color: white;
+        color: white;
+    }
 }

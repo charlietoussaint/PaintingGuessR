@@ -60,7 +60,7 @@ class PaintingFixtures extends Fixture implements DependentFixtureInterface
             [
                 'artMovmentName' => 'Romantisme',
                 'painting_name' => "Le Voyageur contemplant une mer de nuages",
-                'painting_URL' => 'mer.jpg',
+                'painting_URL' => 'nuage.jpg',
                 'painting_date' => '1818',
                 'painter_name' => "Caspar David Friedrich",
                 'painter_description' => "Il a été composé à partir de 1818 et est, avec La Mer de glace, l'une des œuvres les plus célèbres du peintre. Il est conservé et exposé à la Kunsthalle de Hambourg1. Cette œuvre appartient au courant artistique du romantisme allemand.",

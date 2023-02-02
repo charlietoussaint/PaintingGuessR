@@ -51,12 +51,24 @@ class PaintingRepository extends ServiceEntityRepository
     // }
 
 
-    public function findAnswers(): array
+    // public function findAnswers(): array
+    // {
+    //     $queryBuilder = $this->createQueryBuilder('p')
+    //         ->join('p.movmentKey', 'a')
+    //         ->setMaxResults(4)
+    //         ->where('p.movmentKey = a.id')
+    //         ->getQuery();
+    //     return $queryBuilder->getResult();
+    // }
+
+    public function findAnswers(int $movmentId): array
     {
         $queryBuilder = $this->createQueryBuilder('p')
-            ->join('p.movmentKey', 'a')
+            ->join('p.movmentKey', 'a', 'WITH', 'p.movmentKey = a.id')
+            ->where('p.movmentKey = :movmentId')
+            ->setParameter('movmentId', $movmentId)
             ->setMaxResults(4)
-            ->where('p.movmentKey = a.id')
+            ->orderBy('p.id', 'ASC')
             ->getQuery();
         return $queryBuilder->getResult();
     }

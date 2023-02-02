@@ -53,17 +53,6 @@ class PaintingController extends AbstractController
         ]);
     }
 
-    // #[Route('/quizz/{id}', name: 'app_painting_show', methods: ['GET'])]
-    // public function quizz(Painting $painting, PaintingRepository $paintingRepository): Response
-    // {
-    //     return $this->render('painting/quizz.html.twig', [
-    //         'painting' => $painting,
-    //         'paintings' => $paintingRepository->findAnswers(),
-    //     ]);
-    // }
-
-
-
     #[Route('/{id}/edit', name: 'app_painting_edit', methods: ['GET', 'POST'])]
     #[IsGranted('ROLE_ADMIN')]
     public function edit(Request $request, Painting $painting, PaintingRepository $paintingRepository): Response
@@ -97,6 +86,8 @@ class PaintingController extends AbstractController
     #[Route('/quizz/{id}', name: 'app_painting_quizz', methods: ['GET', 'POST'])]
     public function quizz(Painting $painting, PaintingRepository $paintingRepository, Request $request): Response
     {
+        $movmentId = $painting->getMovmentKey()->getId();
+
         if ($request->isMethod('POST')) {
             $selectedAnswer = $request->request->get('selectedAnswer');
             $verificationResult = $this->verifyAnswer($selectedAnswer, $painting->getPaintingName());
@@ -106,31 +97,20 @@ class PaintingController extends AbstractController
 
         return $this->render('painting/quizz.html.twig', [
             'painting' => $painting,
-            'paintings' => $paintingRepository->findAnswers(),
+            'paintings' => $paintingRepository->findAnswers($movmentId),
             'verificationResult' => $verificationResult,
         ]);
     }
 
-    // #[Route('/quizz', name: 'app_painting_quizz', methods: ['GET', 'POST'])]
-    // public function quiz(Painting $painting, PaintingRepository $paintingRepository, Request $request): Response
-    // {
-    //     if ($request->isMethod('POST')) {
-    //         $selectedAnswer = $request->request->get('selectedAnswer');
-    //         $verificationResult = $this->verifyAnswer($selectedAnswer, $painting->getPaintingName());
-    //     } else {
-    //         $verificationResult = null;
-    //     }
+    #[Route('/painting/random', name: 'app_painting_random', methods: ['GET'])]
+    public function random(PaintingRepository $paintingRepository): Response
+    {
+        $paintings = $paintingRepository->findAll();
+        $randomIndex = rand(0, count($paintings) - 1);
+        $randomPainting = $paintings[$randomIndex];
 
-    //     $paintings = $paintingRepository->findAll();
-    //     $painting = $paintings[array_rand($paintings)];
-
-    //     return $this->render('painting/quizz.html.twig', [
-    //         'painting' => $painting->getId(),
-    //         // 'id' => $painting->getId(),
-    //         'paintings' => $paintingRepository->findAnswers(),
-    //         'verificationResult' => $verificationResult,
-    //     ]);
-    // }
+        return $this->redirectToRoute('app_painting_quizz', ['id' => $randomPainting->getId()]);
+    }
 
     private function verifyAnswer(string $selectedAnswer, string $realAnswer): string
     {

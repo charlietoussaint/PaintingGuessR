@@ -10,6 +10,6 @@ import './styles/app.scss';
 
 // start the Stimulus application
 import './bootstrap';
-import './js/button.js';
+import './js/frame.js';
 
 require("bootstrap")
