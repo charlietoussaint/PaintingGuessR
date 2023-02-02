@@ -3,27 +3,31 @@
 {% block title %}Painting GuessR
 {% endblock %}
 {% block body %}
+
 	<body class="homeMain">
 
 		<div class="">
 
-			<h1 class="MainTitle">
+			<h1 class="MainTitle animate__animated animate__fadeIn animate__slow">
 				Painting GuessR
 			</h1>
 
-			<h3 class="homeBaseline">
+			<h3 class="homeBaseline animate__animated animate__fadeIn animate__slow">
 				Un jeu à propos d'art
 			</h3>
 
 			<div class="divButton">
 
 				<a href="{{ path('app_painting_random') }}">
-					<button href="/painting/random" class="buttonPlay" type="button">
+					<button href="/painting/random" class="buttonPlay animate__animated animate__fadeIn animate__slow" type="button">
 						Jouer
 					</button>
 				</a>
 
 			</div>
+
 		</div>
+
 	</body>
+
 {% endblock %}

@@ -1,11 +1,21 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}New Painting{% endblock %}
+{% block title %}Créer une nouvelle peinture
+{% endblock %}
 
 {% block body %}
-    <h1>Create new Painting</h1>
 
-    {{ include('painting/_form.html.twig') }}
+	<body class="homeMain">
 
-    <a href="{{ path('app_painting_index') }}">back to list</a>
+		<h1 class="editTitle">Créer une nouvelle peinture</h1>
+
+		<div class="alertContainer">
+			<div>
+
+				{{ include('painting/_form.html.twig') }}
+				<a class="returnText mt-3" href="{{ path('app_painting_index') }}">Retour à la liste</a>
+			</div>
+		</div>
+
+	</body>
 {% endblock %}

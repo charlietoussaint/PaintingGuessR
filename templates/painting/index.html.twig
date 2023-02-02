@@ -1,45 +1,61 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Painting index{% endblock %}
+{% block title %}Painting index
+{% endblock %}
 
 {% block body %}
-    <h1>Painting index</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Painting_name</th>
-                <th>PaintingURL</th>
-                <th>PaintingDate</th>
-                <th>PainterName</th>
-                <th>PainterDescription</th>
-                <th>SmallPaintingUrl</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for painting in paintings %}
-            <tr>
-                <td>{{ painting.id }}</td>
-                <td>{{ painting.paintingName }}</td>
-                <td>{{ painting.paintingURL }}</td>
-                <td>{{ painting.paintingDate }}</td>
-                <td>{{ painting.painterName }}</td>
-                <td>{{ painting.painterDescription }}</td>
-                <td>{{ painting.smallPaintingUrl }}</td>
-                <td>
-                    <a href="{{ path('app_painting_show', {'id': painting.id}) }}">show</a>
-                    <a href="{{ path('app_painting_edit', {'id': painting.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="8">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+	<body class="homeMain">
 
-    <a href="{{ path('app_painting_new') }}">Create new</a>
+		<h1 class="editTitle">Le tableau des tableaux</h1>
+
+		<div class="alertContainer">
+			<a class="btnAddPainting" href="{{ path('app_painting_new') }}">Ajouter une peinture</a>
+		</div>
+
+		<div class="alertContainer mb-5">
+
+			<div class="sizeTableAdmin">
+
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Painting_name</th>
+							<th>PaintingURL</th>
+							<th>PaintingDate</th>
+							<th>PainterName</th>
+							<th>PainterDescription</th>
+							<th>actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for painting in paintings %}
+							<tr>
+								<td>{{ painting.paintingName }}</td>
+								<td>{{ painting.paintingURL }}</td>
+								<td>{{ painting.paintingDate }}</td>
+								<td>{{ painting.painterName }}</td>
+								<td>{{ painting.painterDescription }}</td>
+								<td>
+									<a href="{{ path('app_painting_show', {'id': painting.id}) }}">show</a>
+									<a href="{{ path('app_painting_edit', {'id': painting.id}) }}">edit</a>
+								</td>
+							</tr>
+						{% else %}
+							<tr>
+								<td colspan="8">no records found</td>
+							</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+
+				<div class="alertContainer">
+					<a class="btnAddPainting" href="/logout">Se déconnecter</a>
+				</div>
+
+			</div>
+		</div>
+
+	</body>
+
 {% endblock %}

@@ -17,8 +17,8 @@ body {
 .answersQuizz {
     z-index: 1;
     position: fixed;
-    top: 40px;
-    left: 40px;
+    top: 25px;
+    left: 25px;
 }
 
 .valueQuizz {
@@ -34,12 +34,13 @@ body {
 .semiTitleQuizz {
     font: 800 24px 'Playfair Display';
     font-style: italic;
+    color: black;
 }
 
 .navQuizz {
     z-index: 1;
     position: fixed;
-    top: 50px;
+    top: 40px;
     left: 40px;
 }
 
@@ -74,7 +75,7 @@ body {
     height: 100vh;
 }
 
-#painting {
+#paintingdrag {
     position: absolute;
     top: 0;
     left: 0;
@@ -82,6 +83,19 @@ body {
 
 .MainTitle {
     margin-top: 20vh;
+    font: 800 54px 'Playfair Display';
+    text-align: center;
+    color: #fff;
+}
+
+.returnText {
+    font: 800 20px 'Playfair Display';
+    text-align: center;
+    color: #fff;
+}
+
+.editTitle {
+    margin-top: 3vh;
     font: 800 54px 'Playfair Display';
     text-align: center;
     color: #fff;
@@ -164,7 +178,68 @@ body {
     }
 }
 
+.btnAdminForm {
+    text-decoration: none;
+    margin-top: 50px;
+    width: 200px;
+    font: 800 24px 'Playfair Display';
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    border-color: white;
+    color: #fff;
+    background-color: black;
+    text-align: center;
+
+    &:hover {
+        border-color: blue;
+        color: blue;
+    }
+}
+
+.btnAddPainting {
+    text-decoration: none;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    width: 200px;
+    font: 800 24px 'Playfair Display';
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    border-color: white;
+    color: #fff;
+    background-color: black;
+    text-align: center;
+
+    &:hover {
+        border-color: blue;
+        color: blue;
+    }
+}
+
+.btnDelete {
+    width: 200px;
+    font: 800 24px 'Playfair Display';
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    border-color: red;
+    color: red;
+    background-color: black;
+    text-align: center;
+
+    &:hover {
+        border-color: white;
+        color: white;
+    }
+}
+
 .btnSkip {
+    margin-top: 20px;
     font: 800 20px 'Playfair Display';
     border-left: 0px;
     border-right: 0px;
@@ -207,4 +282,49 @@ body {
         border-color: white;
         color: white;
     }
+}
+
+label {
+    font: 500 18px 'Playfair Display' !important;
+    color: #fff !important;
+}
+
+.sizeTableAdmin {
+    width: 80vw;
+}
+
+th {
+    font: 500 18px 'Playfair Display';
+    color: #fff;
+}
+
+td {
+    color: #fff;
+}
+
+.resetBtn {
+    width: 180px;
+    margin-top: 20px;
+    font: 800 20px 'Playfair Display';
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 2px solid;
+    border-bottom: 2px solid;
+    border-color: black;
+    color: black;
+    text-align: center;
+    background: rgba(255, 122, 89, .0);
+    margin-left: 12px;
+
+    &:hover {
+        border-color: white;
+        color: white;
+    }
+}
+
+.quizzForm {
+    background-color: rgba(255, 255, 255, 0.6);
+    width: 350px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
