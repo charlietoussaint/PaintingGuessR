@@ -1,9 +1,7 @@
-# Template_Symfony
+# Painting GuessR
 
-Bootstrap is already installed.
+Un super jeu de devinnette de peinture
 
-To do :
+copyright : CharlieGuessR®™
 
- - composer install
- - yarn install
  
